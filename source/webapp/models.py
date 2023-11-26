@@ -4,8 +4,9 @@ status_choices = [('new', 'Новая'), ('in_progress', 'В процессе'),
 
 class Task(models.Model):
     description = models.CharField(max_length=150, null=False, blank=False, verbose_name='Описание задачи')
-    status = models.CharField(max_length=50, default='new', verbose_name='Статус задачи', choices=status_choices)
-    date_of_completion = models.TextField(max_length=20, null=True, verbose_name='Дата выполнения YYYY-mm-dd')
+    date_of_completion = models.CharField(max_length=20, null=True, verbose_name='Дата выполнения')
+    status = models.TextField(max_length=50, default='new', verbose_name='Статус задачи', choices=status_choices)
+
 
     def __str__(self):
         return f'{self.id} {self.description}'
