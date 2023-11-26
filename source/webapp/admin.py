@@ -2,7 +2,7 @@ from django.contrib import admin
 from webapp.models import Task
 
 
-
+@admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ['id', 'description', 'status', 'date_of_completion']
     list_filter = ['description']
@@ -10,4 +10,4 @@ class TaskAdmin(admin.ModelAdmin):
     fields = ['description', 'status', 'date_of_completion']
     readonly_fields = ['date_of_completion']
 
-admin.site.register(Task, TaskAdmin)
+
