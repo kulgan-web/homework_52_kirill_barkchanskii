@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from webapp.models import Task
+from webapp.models import Task, status_choices
 from django.http import HttpResponseRedirect
+from datetime import datetime
 
 def index_page(request):
     if request.method == 'GET':
@@ -9,7 +10,7 @@ def index_page(request):
 
 def create_task(request):
     if request.method == 'GET':
-        return render(request, 'task.html')
+        return render(request, 'task.html', {'status_choices':status_choices})
     elif request.method == 'POST':
         Task.objects.create(
             description=request.POST.get('description'),
