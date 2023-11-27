@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from webapp.models import Task, status_choices
 from django.http import HttpResponseRedirect
-from datetime import datetime
+
 
 def index_page(request):
     if request.method == 'GET':
